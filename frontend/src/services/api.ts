@@ -2,8 +2,12 @@ import axios from 'axios';
 import { ReportsResponse } from '../types';
 import { MetaAdsData } from '../types/meta';
 
+const API_URL = import.meta.env.PROD
+  ? 'https://trendyol-meta-analytics-production.up.railway.app/api'
+  : '/api';
+
 const api = axios.create({
-  baseURL: '/api'
+  baseURL: API_URL
 });
 
 api.interceptors.request.use((config) => {
